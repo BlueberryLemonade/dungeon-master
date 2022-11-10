@@ -7,6 +7,9 @@ const MonsterForm = (props) => {
     const[enteredName, setEnteredName] = useState("");
     const[enteredStrength, setEnteredStrength] = useState("");
 
+    
+
+
     const nameChangeHandler = (event) => {
         setEnteredName(event.target.value);
     };

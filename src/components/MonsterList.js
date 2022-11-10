@@ -6,6 +6,8 @@ const MonsterList = props => {
         return <h2>No Monsters in database</h2>
     }
 
+    
+
 
     return (    
         
