@@ -15,9 +15,23 @@ const MonsterForm = (props) => {
         setEnteredStrength(event.target.value);
     };
 
+    const submitHandler = (event) => {
+        event.preventDefault();
+
+
+        const monster = {
+            name: enteredName,
+            strength: enteredStrength
+        };
+
+        props.onMonsterAdded(monster);
+        setEnteredName("");
+        setEnteredStrength("");
+    };
+
  
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div>
                 <h2>Monster Creation</h2>
                 <div>
@@ -35,7 +49,7 @@ const MonsterForm = (props) => {
                     onChange={strengthChangeHandler}></input>
                 </div>
             </div>
-            <button type='submit'>Confirm</button>
+            <button type='submit' >Confirm</button>
         </form>
     )
 };
