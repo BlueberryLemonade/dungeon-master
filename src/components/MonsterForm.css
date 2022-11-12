@@ -1,7 +1,12 @@
 .labelText {
     text-align: left;
+    color:cyan;
 }
 
 .field {
     align-self: right;
+}
+
+.monsterForm.invalid input {
+    background-color:rgb(224, 151, 151);
 }

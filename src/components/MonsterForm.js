@@ -6,6 +6,7 @@ const MonsterForm = (props) => {
 
     const[enteredName, setEnteredName] = useState("");
     const[enteredStrength, setEnteredStrength] = useState("");
+    const[isValid, setIsValid] = useState(true);
 
     
 
@@ -18,9 +19,13 @@ const MonsterForm = (props) => {
         setEnteredStrength(event.target.value);
     };
 
+
     const submitHandler = (event) => {
         event.preventDefault();
-
+        if(enteredName.trim().length === 0 || enteredStrength.trim().length === 0){
+            setIsValid(false);
+            return;
+        }
 
         const monster = {
             name: enteredName,
@@ -35,19 +40,19 @@ const MonsterForm = (props) => {
  
     return (
         <form onSubmit={submitHandler}>
-            <div>
+            <div className={`monsterForm ${!isValid ? 'invalid' : ''}`}>
                 <h2>Monster Creation</h2>
-                <div>
+                <div >
                     <label className='labelText'>Name: </label>
-                    <input 
+                    <input
                         type='text'
                         value={enteredName}
                         onChange={nameChangeHandler}
                     ></input>
                 </div>
                 <div>
-                    <label>Strength: </label>
-                    <input type='number' min="0" max="9999" className='field'
+                    <label className='labelText'>Strength: </label>
+                    <input type='number' min="0" max="9999" 
                     value={enteredStrength}
                     onChange={strengthChangeHandler}></input>
                 </div>
