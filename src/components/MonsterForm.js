@@ -6,7 +6,9 @@ const MonsterForm = (props) => {
 
     const[enteredName, setEnteredName] = useState("");
     const[enteredStrength, setEnteredStrength] = useState("");
-    const[isValid, setIsValid] = useState(true);
+    const[nameIsValid, setNameIsValid] = useState(true);
+    const[strengthIsValid, setStrengthIsValid] = useState(true);
+    
 
     
 
@@ -22,8 +24,14 @@ const MonsterForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if(enteredName.trim().length === 0 || enteredStrength.trim().length === 0){
-            setIsValid(false);
+        //Checks to see if the entered strength and name are empty, if so, it sets them to invalid
+        if(enteredName.trim().length === 0){
+            setNameIsValid(false);
+            return;
+        }
+
+        if(enteredStrength.trim().length === 0){
+            setStrengthIsValid(false);
             return;
         }
 
@@ -40,11 +48,12 @@ const MonsterForm = (props) => {
  
     return (
         <form onSubmit={submitHandler}>
-            <div className={`monsterForm ${!isValid ? 'invalid' : ''}`}>
+            <div>
                 <h2>Monster Creation</h2>
                 <div >
                     <label className='labelText'>Name: </label>
                     <input
+                        className={`nameField ${!nameIsValid ? 'invalid' : ''}`}
                         type='text'
                         value={enteredName}
                         onChange={nameChangeHandler}
@@ -52,7 +61,11 @@ const MonsterForm = (props) => {
                 </div>
                 <div>
                     <label className='labelText'>Strength: </label>
-                    <input type='number' min="0" max="9999" 
+                    <input 
+                    type='number' 
+                    className={`strengthField ${!strengthIsValid ? 'invalid' : ''}`}
+                    min="0" 
+                    max="9999" 
                     value={enteredStrength}
                     onChange={strengthChangeHandler}></input>
                 </div>

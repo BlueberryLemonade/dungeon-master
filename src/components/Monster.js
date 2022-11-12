@@ -4,8 +4,8 @@ const Monster = (props) => {
 
     return(
         <div className='monster'>
-    <p>Name: {props.name}</p>
-    <p>Strength: {props.strength}</p>
+    <p>Name: {props.name}    |    Strength: {props.strength}</p>
+    
     </div>
     )
 };
