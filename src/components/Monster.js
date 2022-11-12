@@ -1,9 +1,11 @@
+import './Monster.css';
+
 const Monster = (props) => {
 
     return(
-        <div>
-    <h2>Name: {props.name}</h2>
-    <h2>Strength: {props.strength}</h2>
+        <div className='monster'>
+    <p>Name: {props.name}</p>
+    <p>Strength: {props.strength}</p>
     </div>
     )
 };
