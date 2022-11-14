@@ -29,8 +29,15 @@ const MonsterForm = (props) => {
     };
 
     const strengthChangeHandler = (event) => {
-       
-        setEnteredStrength(event.target.value);
+        const holder = event.target.value;
+        if(holder.trim().length > 0){
+            setStrengthIsValid(true);
+        } else {
+            setStrengthIsValid(false);
+        }
+        setEnteredStrength(holder);
+
+        return;
     };
 
     const verifier = (event) => {
