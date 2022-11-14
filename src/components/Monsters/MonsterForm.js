@@ -26,7 +26,7 @@ const MonsterForm = (props) => {
 
     const strengthChangeHandler = (event) => {
         const holder = event.target.value;
-        if (holder.trim().length > 0) {
+        if (holder.trim().length > 0 && holder <= 9999) {
             setStrengthIsValid(true);
         } else {
             setStrengthIsValid(false);
