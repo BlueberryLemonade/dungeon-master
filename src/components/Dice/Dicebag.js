@@ -1,37 +1,18 @@
-import { useState } from "react";
+import Die from "./Die";
 
-const Dicebag = (props) => {
-    const [isClicked, setIsClicked] = useState(false);
-
-    const openDiceMenu = () => {
-        setIsClicked(true);
-    };
-
-    const closeDiceMenu = () =>{
-        setIsClicked(false);
-    };
-    
-    const diceOptions = () => {
-        if (!isClicked) {
-          return (<div>
-                <button onClick={openDiceMenu}>Open Dice</button>          
-                </div>
-          );
-        } else {
-          return (
-            <div>
-              <p>Dice</p>
-              <button onClick={closeDiceMenu}>Close Dice</button>
-            </div>
-          );
-        }
-      };
+const Dicebag = () => {
 
     return(
         <div>
-        {diceOptions()}
+            <Die sides="6"/>
+            <Die sides="8"/>
+            <Die sides="10"/>
+            <Die sides="20"/>
+            <Die sides="100"/>
         </div>
     )
+        
+    
 };
 
 export default Dicebag;
