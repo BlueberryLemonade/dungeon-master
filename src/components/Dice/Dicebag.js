@@ -10,7 +10,7 @@ const Dicebag = () => {
             <Die sides="20"/>
             <Die sides="100"/>
         </div>
-    )
+    );
         
     
 };
