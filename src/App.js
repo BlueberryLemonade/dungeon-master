@@ -1,5 +1,5 @@
 import './App.css';
-import MonsterMenu from './components/MonsterMenu';
+import MonsterMenu from './components/Monsters/MonsterMenu';
 
 
 
