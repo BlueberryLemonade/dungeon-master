@@ -1,6 +1,5 @@
 import './ChampionForm.css';
 import { useEffect, useState, useRef } from 'react';
-import Champion from './Champion';
 
 const ChampionForm = (props) => {
 
