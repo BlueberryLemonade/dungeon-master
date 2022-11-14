@@ -6,6 +6,9 @@ const MonsterList = props => {
         return <h2>No Monsters in database</h2>
     }
 
+
+
+
     
 
 
@@ -14,6 +17,8 @@ const MonsterList = props => {
         <ul>
         {props.monsters.map((monster) => (
             <Monster
+            onDeleteClick={props.onDeleteClick}
+            key={monster.name}
             name={monster.name}
             strength={monster.strength}
             />

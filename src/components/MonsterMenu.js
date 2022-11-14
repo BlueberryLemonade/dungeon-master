@@ -22,17 +22,27 @@ const MonsterMenu = props => {
 
   const [monsters, setMonsters] = useState(DUMMY_MONSTERS);
 
+  const deleteHandler = (monsterId) => {
+
+    console.log(monsterId);
+
+    setMonsters(prevMonsters => {
+      const updatedMonsters = prevMonsters.filter(monster => monster.name !== monsterId);
+      return updatedMonsters;
+    })
+  };
+
   const formAndList = () => {
     if (!isClicked) {
       return (<div>
-        <button type="button" onClick={openMonsterMenu}>Open Meny</button>
+        <button type="button" onClick={openMonsterMenu}>Open Menu</button>
       </div>
       );
     } else {
       return (
         <div>
           <MonsterForm onMonsterAdded={addMonsterHandler} onCloseClick={closeMonsterMenu} />
-          <MonsterList monsters={monsters} />
+          <MonsterList monsters={monsters} onDeleteClick={deleteHandler} />
         </div>
       );
     }
