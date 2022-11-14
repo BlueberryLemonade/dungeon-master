@@ -1,14 +1,7 @@
 import './App.css';
 import MonsterMenu from './components/Monsters/MonsterMenu';
 
-
-
-
 const App = () => {
-
-
-
-
   return (
     <div className="App-header">
       <MonsterMenu />

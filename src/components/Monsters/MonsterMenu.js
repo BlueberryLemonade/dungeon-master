@@ -16,10 +16,7 @@ const DUMMY_MONSTERS = [
 
 const MonsterMenu = props => {
 
-
   const [isClicked, setIsClicked] = useState(false);
-
-
   const [monsters, setMonsters] = useState(DUMMY_MONSTERS);
 
   const deleteHandler = (monsterId) => {
