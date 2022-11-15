@@ -1,15 +1,10 @@
 import './App.css';
-import MonsterMenu from './components/Monsters/MonsterMenu';
-import ChampionMenu from './components/Champions/ChampionMenu';
-import DiceMenu from './components/Dice/DiceMenu';
-import ArenaMenu from './components/Arena/ArenaMenu';
+import OptionsMenu from './Options/OptionsMenu';
+
 const App = () => {
   return (
     <div className="App-header">
-      <MonsterMenu />
-      <ChampionMenu/>
-      <DiceMenu />
-      <ArenaMenu />
+      <OptionsMenu />
     </div>
   );
 };

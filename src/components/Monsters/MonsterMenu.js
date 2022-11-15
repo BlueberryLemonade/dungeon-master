@@ -16,12 +16,11 @@ const DUMMY_MONSTERS = [
 
 const MonsterMenu = props => {
 
-  const [isClicked, setIsClicked] = useState(false);
   const [monsters, setMonsters] = useState(DUMMY_MONSTERS);
+
 
   const deleteHandler = (monsterId) => {
 
-    console.log(monsterId);
 
     setMonsters(prevMonsters => {
       const updatedMonsters = prevMonsters.filter(monster => monster.name !== monsterId);
@@ -30,30 +29,17 @@ const MonsterMenu = props => {
   };
 
   const formAndList = () => {
-    if (!isClicked) {
-      return (<div>
-        <button type="button" onClick={openMonsterMenu}>Open Menu</button>
-      </div>
-      );
-    } else {
+   
       return (
         <div>
-          <MonsterForm onMonsterAdded={addMonsterHandler} onCloseClick={closeMonsterMenu} />
+          <MonsterForm onMonsterAdded={addMonsterHandler} />
           <MonsterList monsters={monsters} onDeleteClick={deleteHandler} />
+          <button type='button' onClick={props.onClose} >Close Menu</button>
         </div>
       );
-    }
+
   };
 
-
-
-  const openMonsterMenu = () => {
-    setIsClicked(true);
-  };
-
-  const closeMonsterMenu = () => {
-    setIsClicked(false);
-  };
 
   const addMonsterHandler = (monster) => {
 

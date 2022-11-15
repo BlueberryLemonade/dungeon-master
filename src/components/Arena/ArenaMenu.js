@@ -6,10 +6,12 @@ const Arena = props => {
     const[isClicked, setIsClicked] = useState(false);
     
     const openArenaMenu = () => {
+        props.onSelected("arena");
         setIsClicked(true);
     };
 
     const closeArenaMenu = () => {
+        props.onClose();
         setIsClicked(false);
     };
 
@@ -19,7 +21,7 @@ const Arena = props => {
           return (
           <div>
 
-                <button onClick={openArenaMenu}>Open Arena</button>          
+                <button onClick={openArenaMenu}>Arena</button>          
                 </div>
           );
         } else {

@@ -1,5 +1,5 @@
 import './MonsterForm.css';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 
 const MonsterForm = (props) => {
 
@@ -10,7 +10,6 @@ const MonsterForm = (props) => {
 
     const ref = useRef();
 
-    useEffect(() => console.log(enteredName), [enteredName]);
 
 
     const nameChangeHandler = (event) => {
@@ -96,7 +95,6 @@ const MonsterForm = (props) => {
                 </div>
             </div>
             <button type='submit' >Confirm</button>
-            <button type='button' onClick={props.onCloseClick} >Close Menu</button>
         </form>
     )
 };

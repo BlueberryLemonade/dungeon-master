@@ -32,7 +32,7 @@ const ChampionMenu = props => {
   const formAndList = () => {
     if (!isClicked) {
       return (<div>
-        <button type="button" onClick={openChampionMenu}>Open Champion Menu</button>
+        <button type="button" onClick={openChampionMenu}>Champions</button>
       </div>
       );
     } else {
@@ -49,9 +49,11 @@ const ChampionMenu = props => {
 
   const openChampionMenu = () => {
     setIsClicked(true);
+   
   };
 
   const closeChampionMenu = () => {
+    props.onClose();
     setIsClicked(false);
   };
 
