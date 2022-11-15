@@ -2,6 +2,7 @@ import MonsterMenu from '../components/Monsters/MonsterMenu';
 import ChampionMenu from '../components/Champions/ChampionMenu';
 import DiceMenu from '../components/Dice/DiceMenu';
 import ArenaMenu from '../components/Arena/ArenaMenu';
+import './OptionsMenu.css';
 import { useState } from 'react';
 
 const OptionsMenu = () => {
@@ -24,10 +25,14 @@ const OptionsMenu = () => {
             case "":
                 return (
                     <div>
+                        <ul>
                      {options.map(option => 
+                    <li>
                      <button onClick={selectionHandler}>{option}</button>
+                     </li>
                     )}
 
+                        </ul>
                     
                     </div>
                 );
