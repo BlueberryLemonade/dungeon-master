@@ -26,40 +26,38 @@ const OptionsMenu = () => {
                 return (
                     <div>
                         <ul>
-                     {options.map(option => 
-                    <li>
-                     <button onClick={selectionHandler}>{option}</button>
-                     </li>
-                    )}
-
+                            {options.map(option =>
+                                <li>
+                                    <button onClick={selectionHandler}>{option}</button>
+                                </li>
+                            )}
                         </ul>
-                    
                     </div>
                 );
             case "Monsters":
-                return(
-                        <MonsterMenu onSelected={selectionHandler} onClose={closeHandler}/>
+                return (
+                    <MonsterMenu onClose={closeHandler} />
                 );
             case "Champions":
-                return(
-                        <ChampionMenu  onClose={closeHandler}/>
+                return (
+                    <ChampionMenu onClose={closeHandler} />
                 );
             case "Dice":
-                return(
-                         <DiceMenu onSelected={selectionHandler} onClose={closeHandler}/>
-                );  
+                return (
+                    <DiceMenu onClose={closeHandler} />
+                );
             case "Arena":
-                return(
-                    <ArenaMenu onSelected={selectionHandler} onClose={closeHandler}/>
+                return (
+                    <ArenaMenu onClose={closeHandler} />
 
                 );
 
-             default: 
-             return (
-                <div>
-                    <p>Error in Options Menu</p>
-                </div>
-            );
+            default:
+                return (
+                    <div>
+                        <p>Error in Options Menu</p>
+                    </div>
+                );
 
 
         }

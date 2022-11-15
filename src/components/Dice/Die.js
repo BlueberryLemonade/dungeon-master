@@ -5,7 +5,7 @@ const Die = (props) => {
     };
 
     const roll = () => {
-        console.log(randomInt(props.sides));
+        props.roll(randomInt(props.sides));
 
     };
 
