@@ -96,7 +96,6 @@ const ChampionForm = (props) => {
                 </div>
             </div>
             <button type='submit' >Confirm</button>
-            <button type='button' onClick={props.onCloseClick} >Close Menu</button>
         </form>
     )
 };
