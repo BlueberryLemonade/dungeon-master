@@ -2,10 +2,11 @@ import MonsterMenu from '../components/Monsters/MonsterMenu';
 import ChampionMenu from '../components/Champions/ChampionMenu';
 import DiceMenu from '../components/Dice/DiceMenu';
 import ArenaMenu from '../components/Arena/ArenaMenu';
-import OptionsButton from './OptionsButton';
 import { useState } from 'react';
 
 const OptionsMenu = () => {
+
+    const options = ["Monsters", "Champions", "Dice", "Arena"];
 
     const [selected, setSelected] = useState("");
 
@@ -23,10 +24,9 @@ const OptionsMenu = () => {
             case "":
                 return (
                     <div>
-                     <button onClick={selectionHandler}>Monsters</button>
-                     <OptionsButton name="Champions"  />
-                     <OptionsButton name="Dice"  />
-                     <OptionsButton name="Arena"  />
+                     {options.map(option => 
+                     <button onClick={selectionHandler}>{option}</button>
+                    )}
 
                     
                     </div>
@@ -35,15 +35,15 @@ const OptionsMenu = () => {
                 return(
                         <MonsterMenu onSelected={selectionHandler} onClose={closeHandler}/>
                 );
-            case "champion":
+            case "Champions":
                 return(
                         <ChampionMenu  onClose={closeHandler}/>
                 );
-            case "dice":
+            case "Dice":
                 return(
                          <DiceMenu onSelected={selectionHandler} onClose={closeHandler}/>
                 );  
-            case "arena":
+            case "Arena":
                 return(
                     <ArenaMenu onSelected={selectionHandler} onClose={closeHandler}/>
 

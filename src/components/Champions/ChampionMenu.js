@@ -16,7 +16,6 @@ const DUMMY_CHAMPIONS = [
 
 const ChampionMenu = props => {
 
-  const [isClicked, setIsClicked] = useState(false);
   const [champions, setChampions] = useState(DUMMY_CHAMPIONS);
 
   const deleteHandler = (championId) => {
@@ -30,32 +29,16 @@ const ChampionMenu = props => {
   };
 
   const formAndList = () => {
-    if (!isClicked) {
-      return (<div>
-        <button type="button" onClick={openChampionMenu}>Champions</button>
-      </div>
-      );
-    } else {
       return (
         <div>
-          <ChampionForm onChampionAdded={addChampionHandler} onCloseClick={closeChampionMenu} />
+          <ChampionForm onChampionAdded={addChampionHandler} />
           <ChampionList champions={champions} onDeleteClick={deleteHandler} />
+          <button type='button' onClick={props.onClose} >Close Menu</button>
         </div>
       );
-    }
+    
   };
 
-
-
-  const openChampionMenu = () => {
-    setIsClicked(true);
-   
-  };
-
-  const closeChampionMenu = () => {
-    props.onClose();
-    setIsClicked(false);
-  };
 
   const addChampionHandler = (champion) => {
 
