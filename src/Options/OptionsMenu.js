@@ -8,8 +8,20 @@ import { useState } from 'react';
 const OptionsMenu = () => {
 
     const options = ["Monsters", "Champions", "Dice", "Arena"];
+    const DUMMY_CHAMPIONS = [
+        {
+          name: "Strongman",
+          strength: 50
+        },
+        {
+          name: "Weakguy",
+          strength: 3
+        }
+      ];
+      
 
     const [selected, setSelected] = useState("");
+    const[championDatabase, setChampionDatabase] = useState(DUMMY_CHAMPIONS); 
 
     const selectionHandler = (event) => {
         setSelected(event.target.textContent);
@@ -18,6 +30,11 @@ const OptionsMenu = () => {
     const closeHandler = () => {
         setSelected("");
     };
+
+    const saveChampions = (championList) => {
+        
+        setChampionDatabase(championList);
+    }
 
     const Options = () => {
 
@@ -40,7 +57,7 @@ const OptionsMenu = () => {
                 );
             case "Champions":
                 return (
-                    <ChampionMenu onClose={closeHandler} />
+                    <ChampionMenu champions={championDatabase} onSaveChampions={saveChampions} onClose={closeHandler} />
                 );
             case "Dice":
                 return (
