@@ -1,6 +1,5 @@
 import './App.css';
-import OptionsMenu from './Options/OptionsMenu';
-
+import OptionsMenu from './components/Options/OptionsMenu';
 const App = () => {
   return (
     <div className="App-header">

@@ -1,7 +1,7 @@
-import MonsterMenu from '../components/Monsters/MonsterMenu';
-import ChampionMenu from '../components/Champions/ChampionMenu';
-import DiceMenu from '../components/Dice/DiceMenu';
-import ArenaMenu from '../components/Arena/ArenaMenu';
+import MonsterMenu from '../Monsters/MonsterMenu';
+import ChampionMenu from '../Champions/ChampionMenu';
+import DiceMenu from '../Dice/DiceMenu';
+import ArenaMenu from '../Arena/ArenaMenu';
 import './OptionsMenu.css';
 import { useState } from 'react';
 
