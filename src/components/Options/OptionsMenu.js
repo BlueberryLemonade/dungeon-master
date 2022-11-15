@@ -63,7 +63,7 @@ const OptionsMenu = () => {
                     <div>
                         <ul>
                             {options.map(option =>
-                                <li>
+                                <li key={option}>
                                     <button onClick={selectionHandler}>{option}</button>
                                 </li>
                             )}

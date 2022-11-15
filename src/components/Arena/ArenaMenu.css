@@ -2,7 +2,7 @@ h3{
     color:aqua;
 }
 
-.arenaMonsters{
+.Monsters{
     color: red;
 }
 
@@ -16,6 +16,6 @@ p{
      padding: 10px;
     }
 
-.arenaChampions{
-    padding-left: 15%;
+.Champions{
+    padding-left: 50%;
 }
