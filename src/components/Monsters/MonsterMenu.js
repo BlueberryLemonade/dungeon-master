@@ -2,25 +2,15 @@ import { useState } from "react";
 import MonsterList from "./MonsterList";
 import MonsterForm from "./MonsterForm";
 
-const DUMMY_MONSTERS = [
-  {
-    name: "Goblin",
-    strength: 2
-  },
-  {
-    name: "Spider",
-    strength: 1
-  }
-];
+
 
 
 const MonsterMenu = props => {
 
-  const [monsters, setMonsters] = useState(DUMMY_MONSTERS);
+  const [monsters, setMonsters] = useState(props.monsters);
 
 
   const deleteHandler = (monsterId) => {
-
 
     setMonsters(prevMonsters => {
       const updatedMonsters = prevMonsters.filter(monster => monster.name !== monsterId);
@@ -28,12 +18,17 @@ const MonsterMenu = props => {
     })
   };
 
+  const saveMonsters = () => {
+    props.onSaveMonsters(monsters);
+  }
+
   const formAndList = () => {
    
       return (
         <div>
           <MonsterForm onMonsterAdded={addMonsterHandler} />
           <MonsterList monsters={monsters} onDeleteClick={deleteHandler} />
+          <button type='button' onClick={saveMonsters} >Save Monsters</button>
           <button type='button' onClick={props.onClose} >Close Menu</button>
         </div>
       );
