@@ -1,14 +1,33 @@
 import './ArenaMenu.css';
 import ArenaList from './ArenaList';
 import { useState } from 'react';
+import FightPit from './FightPit';
 
 const Arena = props => {
-
-
   const[selectedChampion, setSelectedChampions] = useState("");
   const[selectedMonster, setSelectedMonster] = useState("");
+
+  const champSearch = (name) => {
+    return name.name === selectedChampion;
+  }
+
+  const monsterSearch = (name) => {
+    return name.name === selectedMonster;
+  }
+
+
+  const fightHandler = () => {
+    const champIndex = props.champions.findIndex(champSearch);
+    const enemyIndex = props.monsters.findIndex(monsterSearch);
+
+    const enemy = props.monsters[enemyIndex];
+    const champ = props.champions[champIndex];
+    console.log(champ.strength + " Damage is done to " + enemy.name);
+    console.log("and " + enemy.strength + " Damage is done to " + champ.name);
+  };
+
+
   const selectionHandler = (event) => {
-    console.log(event.target.parentElement.className);
 
     switch(event.target.parentElement.className){
       case "Champions" : setSelectedChampions(event.target.textContent);
@@ -25,10 +44,10 @@ const Arena = props => {
   const arenaOptions = () => {
     return (
       <div>
-        <h1>--------Arena---------</h1>
-        <h2>========================</h2>
-        <p>Champion: {selectedChampion}</p>
-        <p>Monster: {selectedMonster}</p>
+       <FightPit selectedMonster={selectedMonster} selectedChampion={selectedChampion} />
+        <button onClick={fightHandler}>Fight</button>
+
+
         <div className="monChampContainer">
           <div className="arenaMonsters">
             <ArenaList onSelected={selectionHandler} className="Monsters" database={props.monsters} />
