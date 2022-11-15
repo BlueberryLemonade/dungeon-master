@@ -6,6 +6,7 @@ import FightPit from './FightPit';
 const Arena = props => {
   const[selectedChampion, setSelectedChampions] = useState("");
   const[selectedMonster, setSelectedMonster] = useState("");
+  const[fightText, setFightText] = useState("All is peaceful currently");
 
   const champSearch = (name) => {
     return name.name === selectedChampion;
@@ -22,8 +23,7 @@ const Arena = props => {
 
     const enemy = props.monsters[enemyIndex];
     const champ = props.champions[champIndex];
-    console.log(champ.strength + " Damage is done to " + enemy.name);
-    console.log("and " + enemy.strength + " Damage is done to " + champ.name);
+    setFightText(champ.strength + " Damage is done to " + enemy.name + " and " + enemy.strength + " Damage is done to " + champ.name);
   };
 
 
@@ -45,6 +45,9 @@ const Arena = props => {
     return (
       <div>
        <FightPit selectedMonster={selectedMonster} selectedChampion={selectedChampion} />
+
+       <p>{fightText}</p>
+
         <button onClick={fightHandler}>Fight</button>
 
 
