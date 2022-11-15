@@ -88,7 +88,7 @@ const OptionsMenu = () => {
             case "Arena":
                 return (
                     //The Arena is a fighting ground for champions and monsters
-                    <ArenaMenu onClose={closeHandler} />
+                    <ArenaMenu champions={championDatabase} monsters={monsterDatabase} onClose={closeHandler} />
 
                 );
 
