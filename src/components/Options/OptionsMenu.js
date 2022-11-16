@@ -4,6 +4,7 @@ import DiceMenu from '../Dice/DiceMenu';
 import ArenaMenu from '../Arena/ArenaMenu';
 import './OptionsMenu.css';
 import { useState } from 'react';
+import CampaignMenu from '../Campaigns/CampaignMenu';
 
 const OptionsMenu = () => {
 
@@ -11,7 +12,7 @@ const OptionsMenu = () => {
     //As such it should hold all the important data until a better way of data manipulation can be found
 
     //Initial values
-    const options = ["Monsters", "Champions", "Dice", "Arena"];
+    const options = ["Campaigns", "Monsters", "Champions", "Dice", "Arena"];
     const DUMMY_MONSTERS = [
         {
           name: "Goblin",
@@ -33,7 +34,7 @@ const OptionsMenu = () => {
         }
       ];
       
-
+    const[campaigns, setCampaigns] = useState("");
     const [selected, setSelected] = useState("");
     const[championDatabase, setChampionDatabase] = useState(DUMMY_CHAMPIONS); 
     const[monsterDatabase, setMonsterDatabase] = useState(DUMMY_MONSTERS);
@@ -70,6 +71,10 @@ const OptionsMenu = () => {
                         </ul>
                     </div>
                 );
+            case "Campaigns":
+                return(
+                    <CampaignMenu campaigns={campaigns} onClose={closeHandler}/>
+                )
             case "Monsters":
                 return (
                     //The Monster Menu is where you can create monsters by setting a name an health field. TODO: flesh out options like health and description
