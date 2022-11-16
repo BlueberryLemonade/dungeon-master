@@ -13,7 +13,7 @@ const OptionsMenu = () => {
                     <div>
                         {options.map( option => {
                             return(
-                                <Link to={option}><button>{option}</button></Link>
+                                <Link key={option} to={option}><button>{option}</button></Link>
                             )
                         })}
                     </div>

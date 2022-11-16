@@ -1,33 +1,39 @@
-import { useState } from "react";
-import CampaignCreator from "./CampaignCreator";
-import { Link } from "react-router-dom";
+
+import { Link} from "react-router-dom";
 const CampaignMenu = (props) => {
 
-const[campaigns, setCampaigns] = useState(props.campaigns);
 
-const newCampaign = () => {
 
-    setCampaigns("1");
-}
 const MenuGeneration = () => {
-    if(campaigns.length === 0){
+    if(props.campaigns.length === 0){
 
        return (<div>
        <p>No Campaigns</p>
 
      
-       <button onClick={newCampaign}>Create a Campaign</button>
        </div>
        )
     }
+
     return (
-        <p>Campaign</p>
+        <div>
+        {props.campaigns.map((campaign) => (
+            <div>
+            <p>Name: {campaign.name}</p>
+            <p>Description: {campaign.description}</p>
+            </div>
+            
+        ))}
+        </div>
     );
 };
 
 return (
     <div>
+      
     {MenuGeneration()}
+    <Link to="/Campaigns/Create"><button>Create a Campaign</button></Link>
+
     <Link to="/"><button>Close Menu</button></Link>
     </div>
 );

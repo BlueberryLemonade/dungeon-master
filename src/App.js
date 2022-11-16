@@ -5,7 +5,7 @@ import MonsterMenu from './components/Monsters/MonsterMenu';
 import CampaignMenu from './components/Campaigns/CampaignMenu';
 import ArenaMenu from './components/Arena/ArenaMenu';
 import ChampionMenu from './components/Champions/ChampionMenu';
-
+import CampaignCreator from './components/Campaigns/CampaignCreator';
 import { useState } from 'react';
 import DiceMenu from './components/Dice/DiceMenu';
 
@@ -47,6 +47,15 @@ const App = () => {
     setChampionDatabase(championList);
   }
 
+
+
+  const saveCampaign = (campaign) => {
+
+    setCampaigns((prevCampaigns) => {
+      return [campaign, ...prevCampaigns];
+    });
+  };
+
   return (
     <div className="App-header">
             
@@ -58,7 +67,9 @@ const App = () => {
       <Route path="/Champions" element={<ChampionMenu onSave={saveChampions} champions={championDatabase} />} />
       <Route path="/Dice" element={<DiceMenu />} />
       <Route path="/Arena" element={<ArenaMenu champions={championDatabase} monsters={monsterDatabase} />} />
-      <Route path="/Campaigns" element={<CampaignMenu campaigns={campaigns} /> } />
+      <Route path="/Campaigns/*" element={<CampaignMenu campaigns={campaigns}  /> } />
+      <Route path="/Campaigns/Create" element={<CampaignCreator onSave={saveCampaign} />} />
+
       </Routes>
       
 
