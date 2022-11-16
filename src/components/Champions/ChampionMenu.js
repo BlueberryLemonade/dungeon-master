@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ChampionList from "./ChampionList";
 import ChampionForm from "./ChampionForm";
-
+import { Link } from "react-router-dom";
 
 
 const ChampionMenu = props => {
@@ -16,18 +16,16 @@ const ChampionMenu = props => {
     })
   };
 
-  const saveHandler = () => {
-    props.onSaveChampions(champions);
-  }
+
 
   const formAndList = () => {
       return (
         <div>
           <ChampionForm onChampionAdded={addChampionHandler} />
           <ChampionList champions={champions} onDeleteClick={deleteHandler} />
-          <button type='button' onClick={saveHandler} >Save Champions</button>
+          <button type='button' onClick={props.onSave(champions)} >Save Champions</button>
 
-          <button type='button' onClick={props.onClose} >Close Menu</button>
+          <Link to="/"><button>Close Menu</button></Link>
         </div>
       );
     

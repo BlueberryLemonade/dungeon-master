@@ -2,7 +2,12 @@ import './App.css';
 import OptionsMenu from './components/Options/OptionsMenu';
 import {Route, Routes} from 'react-router-dom';
 import MonsterMenu from './components/Monsters/MonsterMenu';
+import CampaignMenu from './components/Campaigns/CampaignMenu';
+import ArenaMenu from './components/Arena/ArenaMenu';
+import ChampionMenu from './components/Champions/ChampionMenu';
+
 import { useState } from 'react';
+import DiceMenu from './components/Dice/DiceMenu';
 
 const DUMMY_MONSTERS = [
   {
@@ -15,19 +20,32 @@ const DUMMY_MONSTERS = [
   }
 ];
 
+const DUMMY_CHAMPIONS = [
+  {
+    name: "Strongman",
+    strength: 50
+  },
+  {
+    name: "Weakguy",
+    strength: 3
+  }
+];
+
 
 const App = () => {
   
 
   const[monsterDatabase, setMonsterDatabase] = useState(DUMMY_MONSTERS);
-
-
+  const[championDatabase, setChampionDatabase] = useState(DUMMY_CHAMPIONS);
+  const[campaigns, setCampaigns]= useState("");
 
   const saveMosters = (monsterList) => {
-    console.log("Saving monsters" + monsterList + "  " + "monsters now are : " + monsterDatabase);
-    
     setMonsterDatabase(monsterList);
 };
+
+  const saveChampions = (championList) => {
+    setChampionDatabase(championList);
+  }
 
   return (
     <div className="App-header">
@@ -37,6 +55,10 @@ const App = () => {
       <Routes>
       <Route path="/" element={<OptionsMenu/>} />
       <Route path="/Monsters" element={<MonsterMenu onSave={saveMosters} monsters={monsterDatabase} />} />
+      <Route path="/Champions" element={<ChampionMenu onSave={saveChampions} champions={championDatabase} />} />
+      <Route path="/Dice" element={<DiceMenu />} />
+      <Route path="/Arena" element={<ArenaMenu champions={championDatabase} monsters={monsterDatabase} />} />
+      <Route path="/Campaigns" element={<CampaignMenu campaigns={campaigns} /> } />
       </Routes>
       
 

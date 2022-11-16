@@ -2,8 +2,9 @@ import './ArenaMenu.css';
 import ArenaList from './ArenaList';
 import { useState } from 'react';
 import FightPit from './FightPit';
+import { Link } from 'react-router-dom';
 
-const Arena = props => {
+const ArenaMenu = props => {
   const[selectedChampion, setSelectedChampions] = useState("");
   const[selectedMonster, setSelectedMonster] = useState("");
   const[fightText, setFightText] = useState("All is peaceful currently");
@@ -58,7 +59,7 @@ const Arena = props => {
           <ArenaList onSelected={selectionHandler} className="Champions" database={props.champions} />
         </div>
 
-        <button onClick={props.onClose}>Close Arena</button>
+        <Link to="/"><button>Close Arena</button></Link>
       </div>
     );
   };
@@ -70,4 +71,4 @@ const Arena = props => {
   )
 }
 
-export default Arena;
+export default ArenaMenu;

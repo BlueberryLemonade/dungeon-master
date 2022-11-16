@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Dicebag from "./Dicebag";
-
+import { Link } from "react-router-dom";
 const DiceMenu = (props) => {
 
   const [roll, setRoll] = useState("0");
@@ -15,7 +15,7 @@ const DiceMenu = (props) => {
             <div>
               <p>{roll}</p>
               <Dicebag onRoll={rollHandler}/>
-              <button onClick={props.onClose}>Close Dice</button>
+              <Link to="/"><button>Close Dice</button></Link>
             </div>
           );
       };
