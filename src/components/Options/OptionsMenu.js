@@ -6,6 +6,9 @@ import './OptionsMenu.css';
 import { useState } from 'react';
 import CampaignMenu from '../Campaigns/CampaignMenu';
 
+import { Link,Route, Routes } from 'react-router-dom';
+
+
 const OptionsMenu = () => {
 
     //Try to design with OptionsMenu being king in mind. This is the heart of the application, the app itself just exists to give you access to this option menu.
@@ -13,16 +16,7 @@ const OptionsMenu = () => {
 
     //Initial values
     const options = ["Campaigns", "Monsters", "Champions", "Dice", "Arena"];
-    const DUMMY_MONSTERS = [
-        {
-          name: "Goblin",
-          strength: 2
-        },
-        {
-          name: "Spider",
-          strength: 1
-        }
-      ];
+    
     const DUMMY_CHAMPIONS = [
         {
           name: "Strongman",
@@ -37,7 +31,6 @@ const OptionsMenu = () => {
     const[campaigns, setCampaigns] = useState("");
     const [selected, setSelected] = useState("");
     const[championDatabase, setChampionDatabase] = useState(DUMMY_CHAMPIONS); 
-    const[monsterDatabase, setMonsterDatabase] = useState(DUMMY_MONSTERS);
 
     //Selection Handler will recieve the text from a button which will be used with a switch to navigate to the correct submenu
     const selectionHandler = (event) => {
@@ -52,9 +45,7 @@ const OptionsMenu = () => {
     const saveChampions = (championList) => {
         setChampionDatabase(championList);
     };
-    const saveMosters = (monsterList) => {
-        setMonsterDatabase(monsterList);
-    };
+    
 
     const Options = () => {
 
@@ -62,23 +53,12 @@ const OptionsMenu = () => {
             case "":
                 return (
                     <div>
-                        <ul>
-                            {options.map(option =>
-                                <li key={option}>
-                                    <button onClick={selectionHandler}>{option}</button>
-                                </li>
-                            )}
-                        </ul>
+                       <Link to="Monsters"><button type="button">Monsters</button></Link>
                     </div>
                 );
             case "Campaigns":
                 return(
                     <CampaignMenu campaigns={campaigns} onClose={closeHandler}/>
-                )
-            case "Monsters":
-                return (
-                    //The Monster Menu is where you can create monsters by setting a name an health field. TODO: flesh out options like health and description
-                    <MonsterMenu monsters={monsterDatabase} onSaveMonsters={saveMosters} onClose={closeHandler} />
                 );
             case "Champions":
                 return (
@@ -93,7 +73,7 @@ const OptionsMenu = () => {
             case "Arena":
                 return (
                     //The Arena is a fighting ground for champions and monsters
-                    <ArenaMenu champions={championDatabase} monsters={monsterDatabase} onClose={closeHandler} />
+                    <ArenaMenu champions={championDatabase}  onClose={closeHandler} />
 
                 );
 

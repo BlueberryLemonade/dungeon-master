@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MonsterList from "./MonsterList";
 import MonsterForm from "./MonsterForm";
+import { Link } from "react-router-dom";
 
 
 
@@ -18,9 +19,7 @@ const MonsterMenu = props => {
     })
   };
 
-  const saveMonsters = () => {
-    props.onSaveMonsters(monsters);
-  }
+
 
   const formAndList = () => {
    
@@ -28,8 +27,8 @@ const MonsterMenu = props => {
         <div>
           <MonsterForm onMonsterAdded={addMonsterHandler} />
           <MonsterList monsters={monsters} onDeleteClick={deleteHandler} />
-          <button type='button' onClick={saveMonsters} >Save Monsters</button>
-          <button type='button' onClick={props.onClose} >Close Menu</button>
+          <button type='button' onClick={props.onSave(monsters)} >Save Monsters</button>
+          <Link to="/"><button type='button' >Close Menu</button></Link>
         </div>
       );
 

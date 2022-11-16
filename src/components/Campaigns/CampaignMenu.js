@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import CampaignCreator from "./CampaignCreator";
 
 const CampaignMenu = (props) => {
@@ -17,9 +16,7 @@ const MenuGeneration = () => {
        return (<div>
        <p>No Campaigns</p>
 
-       <Router>
-        <Route exact path="src\components\Campaigns\CampaignMenu.js" component={CampaignCreator} />
-       </Router>
+     
        <button onClick={newCampaign}>Create a Campaign</button>
        </div>
        )
