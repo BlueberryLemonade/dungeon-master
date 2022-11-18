@@ -32,8 +32,6 @@ const Dicebag = (props) => {
                         value={enteredX}
                         onChange={changeHandler}
                         ></input>
-            
-            
         </div>
     );
         

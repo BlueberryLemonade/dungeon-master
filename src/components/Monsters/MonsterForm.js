@@ -10,8 +10,6 @@ const MonsterForm = (props) => {
 
     const ref = useRef();
 
-
-
     const nameChangeHandler = (event) => {
         const holder = event.target.value;
         if (holder.trim().length > 0) {
@@ -53,15 +51,12 @@ const MonsterForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         //Checks to see if the entered strength and name are empty, if so, it sets them to invalid
-
-
         const monster = {
             name: enteredName,
             strength: enteredStrength
         };
         setEnteredName("");
         setNameIsValid(false);
-
         setEnteredStrength("");
         setStrengthIsValid(false);
         props.onMonsterAdded(monster);

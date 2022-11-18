@@ -16,8 +16,6 @@ const ChampionMenu = props => {
     })
   };
 
-
-
   const formAndList = () => {
       return (
         <div>
@@ -31,14 +29,12 @@ const ChampionMenu = props => {
     
   };
 
-
   const addChampionHandler = (champion) => {
 
     setChampions((prevChampions) => {
       return [champion, ...prevChampions];
     });
   };
-
 
   return (
     <div>

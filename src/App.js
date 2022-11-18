@@ -57,10 +57,8 @@ const App = () => {
   };
 
   return (
-    <div className="App-header">
-            
-            <h1>DungeonMaster-er</h1>
-
+    <div className="App-header">    
+      <h1>DungeonMaster-er</h1>
       <Routes>
       <Route path="/" element={<OptionsMenu/>} />
       <Route path="/Monsters" element={<MonsterMenu onSave={saveMosters} monsters={monsterDatabase} />} />
@@ -69,10 +67,7 @@ const App = () => {
       <Route path="/Arena" element={<ArenaMenu champions={championDatabase} monsters={monsterDatabase} />} />
       <Route path="/Campaigns/*" element={<CampaignMenu campaigns={campaigns}  /> } />
       <Route path="/Campaigns/Create" element={<CampaignCreator onSave={saveCampaign} />} />
-
       </Routes>
-      
-
     </div>
   );
 };
