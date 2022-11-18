@@ -66,7 +66,6 @@ const App = () => {
       <Route path="/Dice" element={<DiceMenu />} />
       <Route path="/Arena" element={<ArenaMenu champions={championDatabase} monsters={monsterDatabase} />} />
       <Route path="/Campaigns/*" element={<CampaignMenu campaigns={campaigns}  /> } />
-      <Route path="/Campaigns/Create" element={<CampaignCreator onSave={saveCampaign} />} />
       </Routes>
     </div>
   );
