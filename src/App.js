@@ -19,16 +19,7 @@ const DUMMY_MONSTERS = [
   }
 ];
 
-const DUMMY_CHAMPIONS = [
-  {
-    name: "Strongman",
-    strength: 50
-  },
-  {
-    name: "Weakguy",
-    strength: 3
-  }
-];
+
 
 
 const App = () => {
