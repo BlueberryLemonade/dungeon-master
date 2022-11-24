@@ -29,7 +29,8 @@ const CampaignCreator = (props) => {
         <input type="text" onChange={nameChangeHander}></input>
         <label>Description: </label>
         <textarea id="story" name="story"  rows="2" cols="30" onChange={descChangeHandler}/>        
-        <Link to="/Campaigns"><button type="submit" onClick={saveCampaign}>Create</button></Link>
+        <Link to="/Campaigns/"><button type="submit" onClick={saveCampaign} onSave={saveCampaign}>Create</button></Link>
+        
         </div>
     )
 };

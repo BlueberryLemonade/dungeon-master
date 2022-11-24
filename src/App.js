@@ -5,10 +5,9 @@ import MonsterMenu from './components/Monsters/MonsterMenu';
 import CampaignMenu from './components/Campaigns/CampaignMenu';
 import ArenaMenu from './components/Arena/ArenaMenu';
 import ChampionMenu from './components/Champions/ChampionMenu';
-import CampaignCreator from './components/Campaigns/CampaignCreator';
 import { useState } from 'react';
 import DiceMenu from './components/Dice/DiceMenu';
-
+import CampaignCreator from './components/Campaigns/CampaignCreator';
 const DUMMY_MONSTERS = [
   {
     name: "Goblin",
@@ -49,12 +48,13 @@ const App = () => {
 
 
 
-  const saveCampaign = (campaign) => {
+ const saveCampaign = (campaign) => {
 
     setCampaigns((prevCampaigns) => {
       return [campaign, ...prevCampaigns];
     });
   };
+  
 
   return (
     <div className="App-header">    
@@ -65,7 +65,9 @@ const App = () => {
       <Route path="/Champions" element={<ChampionMenu onSave={saveChampions} champions={championDatabase} />} />
       <Route path="/Dice" element={<DiceMenu />} />
       <Route path="/Arena" element={<ArenaMenu champions={championDatabase} monsters={monsterDatabase} />} />
-      <Route path="/Campaigns/*" element={<CampaignMenu campaigns={campaigns}  /> } />
+      <Route path="/Campaigns/" element={<CampaignMenu campaigns={campaigns} onSave={saveCampaign} /> } />
+      <Route path="/Campaigns/Create" element={<CampaignCreator onSave={saveCampaign} />} />
+
       </Routes>
     </div>
   );
